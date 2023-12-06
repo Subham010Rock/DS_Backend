@@ -84,6 +84,18 @@ const postSchema = new Schema({
 //     ref:'Like',
 //     localField:'_id',
 //     foreignField:'postId'
+// }) 
+
+// postSchema.pre('save',(next)=>{
+//     const post = this
+
+//     const reader = new FileReader()
+//     reader.readAsDataURL(image);
+
+//     reader.addEventListener('load',()=>{
+//         post.file = reader.result
+//         next()
+//     })
 // })
 
 const Post = mongoose.model('Post',postSchema)

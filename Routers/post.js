@@ -24,12 +24,13 @@ router.post('/createpost',auth,upload.array('photos',12),async (req,res)=>{
        file:req.files
     })
 
-    await newPost.save()
+   await newPost.save()
 
     const response = await User.findOneAndUpdate(
       {_id:req.user._id},
       {$inc: {postCount: 1}})
-    res.send()
+   const posts = await Post.find({})
+   res.send(posts)
 })
 
 //it will send user post from backend to frontend after recieving user id from frontend
